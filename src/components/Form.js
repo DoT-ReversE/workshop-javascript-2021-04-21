@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
 function Form() {
-    const [data, setData] = useState("");
+    const [name, setName] = useState("");
+    const [message, setMessage] = useState("");
+
+    function doKey(event) {
+        setName(event.target.value);
+    }
+
+    function sayHi() {
+        console.log("Click say hi");
+        setMessage("Hello " + name + "!!!!");
+    }
 
     return (
         <div>
-            <input type="text"/>
-            <p>Hello : {data}</p>
+            <input type="text" onKeyUp={doKey}/>
+            <button onClick={sayHi}>Say Hi</button>
+            <p>Name : {name}</p>
+            <p>{message}</p>
         </div>
     );
 }
