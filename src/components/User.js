@@ -1,8 +1,6 @@
-import React from 'react';
-
-function User( {info} ) {
+function User( {info, age} ) {
     return (
-        <li>{info}</li>
+        <li>{info}-{age}</li>
     );
 }
 
