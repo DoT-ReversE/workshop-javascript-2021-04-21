@@ -4,13 +4,15 @@ import Clock from './components/Clock';
 import Form from './components/Form';
 
 function App() {
+  const users = [
+    { id: 1, name: "User 01", age: 10},
+    { id: 2, name: "User 02", age: 20},
+    { id: 3, name: "User 03", age: 30},
+  ]
+
   return (
     <div>
-      <ul>
-        <User info='User 01' age="30"/>
-        <User info='User 02'/>
-        <User info='User 03'/>
-      </ul>
+      <User users={users}/>
       <Clock />
       <Form />
     </div>

@@ -1,6 +1,14 @@
-function User( {info, age} ) {
+function User( {users} ) {
+    const data = users.map((user) => (
+        <li key={user.id}>
+            {user.name}, {user.age}
+        </li>
+    ));
+
     return (
-        <li>{info}-{age}</li>
+        <ul>
+            {data}
+        </ul>
     );
 }
 
