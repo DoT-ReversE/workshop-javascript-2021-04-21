@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Clock() {
+function Clock( {title} ) {
     const [date, setDate] = useState(new Date());
 
     useEffect(() => {
@@ -14,7 +14,7 @@ function Clock() {
     }, []);
 
     return (
-        <p>Current Date = {date.toLocaleString()}</p>
+        <p>{title}{date.toLocaleString()}</p>
     );
 }
 

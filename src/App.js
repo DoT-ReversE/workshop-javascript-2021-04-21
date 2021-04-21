@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       <User users={users}/>
-      <Clock />
+      <Clock title="Current Date : " />
       <Form onSayHi={sayHi}/>
       <p>{message}</p>
     </div>
