@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 
-function Form() {
+function Form( {onSayHi} ) {
     const [name, setName] = useState("");
-    const [message, setMessage] = useState("");
 
     function doKey(event) {
         setName(event.target.value);
     }
 
-    function sayHi() {
+    function doClick() {
         console.log("Click say hi");
-        setMessage("Hello " + name + "!!!!");
+        onSayHi(name);
     }
 
     return (
         <div>
             <input type="text" onKeyUp={doKey}/>
-            <button onClick={sayHi}>Say Hi</button>
+            <button onClick={doClick}>Say Hi</button>
             <p>Name : {name}</p>
-            <p>{message}</p>
         </div>
     );
 }

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css';
 import User from './components/User';
 import Clock from './components/Clock';
@@ -10,11 +11,18 @@ function App() {
     { id: 3, name: "User 03", age: 30},
   ]
 
+  const [message, setMessage] = useState("");
+
+  function sayHi(name) {
+    setMessage("Hello " + name + "!!!!");
+  }
+
   return (
     <div>
       <User users={users}/>
       <Clock />
-      <Form />
+      <Form onSayHi={sayHi}/>
+      <p>{message}</p>
     </div>
   );
 }
