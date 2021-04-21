@@ -7,7 +7,7 @@ function Form( {onSayHi} ) {
         setName(event.target.value);
     }
 
-    function doClick() {
+    function sayHi() {
         console.log("Click say hi");
         onSayHi(name);
     }
@@ -15,7 +15,7 @@ function Form( {onSayHi} ) {
     return (
         <div>
             <input type="text" onKeyUp={doKey}/>
-            <button onClick={doClick}>Say Hi</button>
+            <button onClick={sayHi}>Say Hi</button>
             <p>Name : {name}</p>
         </div>
     );
