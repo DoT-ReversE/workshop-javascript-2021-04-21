@@ -1,5 +1,6 @@
 import './App.css';
 import User from './components/User';
+import Clock from './components/Clock';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <User info='User 02'/>
         <User info='User 03'/>
       </ul>
+      <Clock />
     </div>
   );
 }
