@@ -9,12 +9,7 @@ function TaskApp() {
     const [tasks, setTasks] = useState([]);
 
     function addTask(taskName) {
-        if (!taskName) {
-            tasks.forEach( (task) => {
-                task.isDone = true;
-            })
-            setTasks([...tasks]);
-        } else {
+        if (taskName) {
             const newTask = {id: taskId, name: taskName, isDone: false};
             setTasks([...tasks, newTask]);
             taskId++;
