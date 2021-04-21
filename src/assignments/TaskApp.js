@@ -1,39 +1,41 @@
 import { useState } from 'react';
 import TaskForm from './TaskForm';
 import './TaskApp.css';
+import TaskCounter from './TaskCounter';
+import Task from './Task';
+let taskId = 1; 
 
 function TaskApp() {
-    let taskId = 1; 
-
     const [tasks, setTasks] = useState([]);
 
     function addTask(taskName) {
         if (!taskName) {
             tasks.forEach( (task) => {
-                task.active = false;
+                task.isDone = true;
             })
             setTasks([...tasks]);
         } else {
-            const newTask = {id: taskId, name: taskName, active: true};
+            const newTask = {id: taskId, name: taskName, isDone: false};
             setTasks([...tasks, newTask]);
             taskId++;
         }
     }
 
-    const activeTasks = tasks.filter( (task) => (task.active));
-
-    const remainingTaskMessage = activeTasks.length + " remaining out of " + tasks.length + " tasks";
+    function onClickTask(task) {
+        task.isDone = !task.isDone;
+        setTasks([...tasks]);
+    }
 
     const taskList = tasks.map((task) => (
-        <li key={task.id} className={task.active ? '' : 'is-done'}>
-            {task.name}
+        <li key={task.id}>
+            <Task task={task} onClickTask={onClickTask}/>
         </li>
     ));
 
     return (
         <div>
-            <TaskForm onAdd={addTask}/>
-            <p>{remainingTaskMessage}</p>
+            <TaskForm onAdd={addTask} />
+            <TaskCounter tasks={tasks} />
             <ul>
                 {taskList}
             </ul>
